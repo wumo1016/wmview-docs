@@ -7,7 +7,7 @@ set -e
 git add -A
 git commit -m 'chore'
 
-# 推送到github
+# 推送
 git push -f https://gitee.com/wumo1016/wmview-docs.git master
 
 cd -
