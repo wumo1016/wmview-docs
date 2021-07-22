@@ -4,7 +4,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack serve",
-    "build": "cross-env NODE_ENV=production"
+    "build": "cross-env NODE_ENV=production",
+    "push": "node build.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
