@@ -1,25 +1,22 @@
-import { ObjectDirective, DirectiveBinding } from 'vue';
+import { ObjectDirective, DirectiveBinding } from 'vue'
 import './index.scss'
 
-const calculate = (
-  e: MouseEvent,
-  el: HTMLElement,
-) => {
+const calculate = (e: MouseEvent, el: HTMLElement) => {
   let localX = 0
   let localY = 0
 
   const offset = el.getBoundingClientRect() // 相当于视窗的位置
 
   // 计算点击位置距离元素的距离
-  localX = e.clientX - offset.left 
+  localX = e.clientX - offset.left
   localY = e.clientY - offset.top
 
   let radius = 0
   let scale = 0.3
   radius = Math.sqrt(el.clientWidth ** 2 + el.clientHeight ** 2) / 2 // 平方根
 
-  const centerX = `${(el.clientWidth - (radius * 2)) / 2}px`
-  const centerY = `${(el.clientHeight - (radius * 2)) / 2}px`
+  const centerX = `${(el.clientWidth - radius * 2) / 2}px`
+  const centerY = `${(el.clientHeight - radius * 2) / 2}px`
 
   const x = `${localX - radius}px`
   const y = `${localY - radius}px`
@@ -28,11 +25,7 @@ const calculate = (
 }
 
 const ripples = {
-  show(
-    e: MouseEvent,
-    el: HTMLElement,
-  ) {
-
+  show(e: MouseEvent, el: HTMLElement) {
     const container = document.createElement('span')
     const animation = document.createElement('span')
 
@@ -72,7 +65,6 @@ const ripples = {
   },
 
   hide(el: HTMLElement | null) {
-
     const ripples = el.getElementsByClassName('v-ripple__animation')
 
     if (ripples.length === 0) return
@@ -125,7 +117,7 @@ const Ripple: ObjectDirective = {
     el.removeEventListener('mousedown', rippleShow)
     el.removeEventListener('mouseup', rippleHide)
     el.removeEventListener('mouseleave', rippleHide)
-  }
+  },
 }
 
 export default Ripple

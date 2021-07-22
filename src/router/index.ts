@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { defineAsyncComponent } from 'vue'
 import Layout from '@v/layout/index.vue'
 import Home from '@v/home/index.vue'
 import navConfig from './config.json'
@@ -12,8 +11,8 @@ const registerRoute = () => {
       path: `/component${path}`,
       component: () => import(`@v/components${path}`),
       meta: {
-        title
-      }
+        title,
+      },
     })
   })
   return routes
@@ -29,15 +28,13 @@ const router = createRouter({
     {
       path: '',
       component: Layout,
-      children: [
-        ...registerRoute()
-      ]
+      children: [...registerRoute()],
     },
     {
       path: '/component',
-      redirect: '/component/icon'
-    }
-  ]
+      redirect: '/component/icon',
+    },
+  ],
 })
 
 export default router
