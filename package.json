@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "vue": "^3.1.2",
-    "vue-router": "^4.0.10"
+    "vue-router": "^4.0.10",
+    "wmview": "^0.0.3"
   }
 }

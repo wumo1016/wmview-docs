@@ -1,5 +1,8 @@
 <template>
-  <div>按钮</div>
+  <div>
+    按钮
+    <wm-button></wm-button>
+  </div>
 </template>
 
 <script lang="ts">
