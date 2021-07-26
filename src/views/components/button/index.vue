@@ -1,6 +1,5 @@
 <template>
   <div>
-    按钮
     <wm-button></wm-button>
   </div>
 </template>
