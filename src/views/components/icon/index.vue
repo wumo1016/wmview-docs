@@ -2,57 +2,95 @@
   <div class="icon_wrapper">
     <div class="example_box">
       <h3>
-        test1
-        <a href="#test1" data-title="test1" class="example_anchor">#</a>
+        Icon 图标
+        <a href="#icon-title">#</a>
       </h3>
-      <div style="height: 200px; background: gray"></div>
+      <p>提供了一套常用的图标合集</p>
     </div>
     <div class="example_box">
       <h3>
-        test2
-        <a href="#test2" data-title="test2" class="example_anchor">#</a>
+        图标列表
+        <a href="#icon-list">#</a>
       </h3>
-      <div style="height: 100px; background: gray"></div>
+      <div class="icon_list">
+        <div v-for="icon in iconList" :key="icon">
+          <wm-icon :class="`wm-icon-${icon}`" :spin="icon === 'loading'" />
+          <div>wm-icon-{{ icon }}</div>
+        </div>
+      </div>
     </div>
     <div class="example_box">
       <h3>
-        test3
-        <a href="#test3" data-title="test3" class="example_anchor">#</a>
+        属性
+        <a href="#icon-attribute">#</a>
       </h3>
-      <div style="height: 300px; background: gray"></div>
-    </div>
-    <div class="example_box">
-      <h3>
-        test4
-        <a href="#test4" data-title="test4" class="example_anchor">#</a>
-      </h3>
-      <div style="height: 200px; background: gray"></div>
-    </div>
-    <div class="example_box">
-      <h3>
-        test5
-        <a href="#test5" data-title="test5" class="example_anchor">#</a>
-      </h3>
-      <div style="height: 500px; background: gray"></div>
+      <common-table>
+        
+      </common-table>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import iconData from './icon.json'
 
 export default defineComponent({
   setup() {
-    return {}
+    const iconList = ref(iconData)
+    return {
+      iconList,
+    }
   },
 })
 </script>
 
 <style lang="scss" scoped>
-h3 {
-  a {
-    height: 30px;
-    line-height: 30px;
+.example_box {
+  color: rgb(92, 91, 91);
+  padding-bottom: 20px;
+  h3 {
+    color: #000;
+    font-size: 1.3rem;
+    a {
+      opacity: 0;
+      color: $tcolor;
+    }
+    &:hover {
+      a {
+        opacity: 1;
+      }
+    }
+  }
+  p {
+    margin: 20px 0;
+  }
+  .icon_list {
+    border-top: 1px solid $bcolor;
+    border-left: 1px solid $bcolor;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    > div {
+      width: 20%;
+      border-bottom: 1px solid $bcolor;
+      border-right: 1px solid $bcolor;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 0;
+      cursor: pointer;
+      i {
+        margin: 1.6rem 0;
+        font-size: 2.2rem !important;
+      }
+      &:hover {
+        color: $tcolor;
+      }
+    }
   }
 }
 </style>
