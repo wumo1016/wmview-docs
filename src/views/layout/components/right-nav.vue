@@ -1,5 +1,5 @@
 <template>
-  <div class="right_nav">
+  <div class="right_nav" v-if="anchors.length > 0">
     <div class="anchor-ink" :style="`top: ${14 + 28 * activeIndex}px`"></div>
     <ul>
       <li
@@ -31,23 +31,24 @@ export default defineComponent({
     onMounted(async () => {
       scrollContainer = document.querySelector('.layout_content')
       const h3s = scrollContainer.querySelectorAll('h3')
-      state.anchors = Array.from(h3s).map((ele: HTMLElement) => {
-        return {
-          title: ele.childNodes[0].textContent.trim(),
-          offsetTop: ele.offsetTop,
-        }
-      })
-      state.active = state.anchors[0].title
-
-      scrollContainer.addEventListener('scroll', (e) => {
-        if (!isManualScroll) return
-        const target = state.anchors.find(
-          (v) => v.offsetTop - 70 > scrollContainer.scrollTop
-        )
-        if (target) {
-          state.active = target.title
-        }
-      })
+      if (h3s.length > 0) {
+        state.anchors = Array.from(h3s).map((ele: HTMLElement) => {
+          return {
+            title: ele.childNodes[0].textContent.trim(),
+            offsetTop: ele.offsetTop,
+          }
+        })
+        state.active = state.anchors[0].title
+        scrollContainer.addEventListener('scroll', (e) => {
+          if (!isManualScroll) return
+          const target = state.anchors.find(
+            (v) => v.offsetTop - 70 > scrollContainer.scrollTop
+          )
+          if (target) {
+            state.active = target.title
+          }
+        })
+      }
     })
 
     const activeIndex = computed(() => {
