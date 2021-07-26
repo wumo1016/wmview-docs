@@ -14,7 +14,7 @@ module.exports = {
     index: resolve('./src/main.ts'),
   },
   output: {
-    path: resolve('../dist'),
+    path: resolve('dist'),
     publicPath: '/',
     filename: 'static/js/[name].js',
   },
