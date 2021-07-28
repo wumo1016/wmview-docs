@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header />测试
   <router-view></router-view>
 </template>
 
