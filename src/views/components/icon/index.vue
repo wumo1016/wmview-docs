@@ -74,7 +74,7 @@ export default defineComponent({
     flex-wrap: wrap;
     background: #fff;
     > div {
-      width: 20%;
+      width: 16.66%;
       border-bottom: 1px solid $bcolor;
       border-right: 1px solid $bcolor;
       display: flex;
