@@ -19,7 +19,7 @@ module.exports = {
     filename: 'static/js/[name].js',
   },
   devServer: {
-    port: 8081,
+    port: 5002,
     historyApiFallback: true, // 使用history路由模式
   },
   resolve: {
