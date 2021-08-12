@@ -99,7 +99,7 @@ export default defineComponent({
     position: relative;
     display: flex;
     align-items: center;
-    padding-right: 3rem;
+    padding-right: 40px;
     flex-wrap: nowrap;
     > ul {
       height: $headerHeight;
@@ -109,8 +109,8 @@ export default defineComponent({
         line-height: $headerHeight;
         color: rgba(24, 144, 255, 0.7);
         cursor: pointer;
-        font-size: 1.3rem;
-        padding: 0 0.5rem;
+        font-size: 16px;
+        padding: 0 10px;
         &:hover {
           color: $tcolor;
         }

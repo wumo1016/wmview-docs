@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 1rem;
+  font-size: 14px;
 }
 
 a {
@@ -45,7 +45,7 @@ input {
 
 [class^='wm-icon-'] {
   font-family: 'wm-icon' !important;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -74,4 +74,23 @@ $scrollbarShadow: rgba(128, 128, 128, 0.2);
   -webkit-box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.1);
   border-radius: 14px;
   background: #ededed;
+}
+
+/* ----------- 公共样式 -------------- */
+.example_box {
+  color: rgb(92, 91, 91);
+  h3 {
+    color: #000;
+    font-size: 18px;
+    margin: 15px 0;
+    a {
+      opacity: 0;
+      color: $tcolor;
+    }
+    &:hover {
+      a {
+        opacity: 1;
+      }
+    }
+  }
 }

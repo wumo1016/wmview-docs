@@ -24,9 +24,7 @@
         属性
         <a href="#icon-attribute">#</a>
       </h3>
-      <common-table>
-        
-      </common-table>
+      <common-table :columnConfig="columnConfig"> </common-table>
     </div>
   </div>
 </template>
@@ -40,56 +38,55 @@ export default defineComponent({
     const iconList = ref(iconData)
     return {
       iconList,
+      columnConfig: [
+        {
+          label: '参数',
+          width: 150,
+        },
+        {
+          label: '说明',
+        },
+        {
+          label: '类型',
+        },
+        {
+          label: '可选值',
+        },
+        {
+          label: '默认值',
+          width: 150,
+        },
+      ],
     }
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.example_box {
-  color: rgb(92, 91, 91);
-  padding-bottom: 20px;
-  h3 {
-    color: #000;
-    font-size: 1.3rem;
-    a {
-      opacity: 0;
-      color: $tcolor;
+.icon_list {
+  border-top: 1px solid $bcolor;
+  border-left: 1px solid $bcolor;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  > div {
+    width: 16.66%;
+    border-bottom: 1px solid $bcolor;
+    border-right: 1px solid $bcolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0;
+    cursor: pointer;
+    i {
+      margin: 24px 0;
+      font-size: 28px !important;
     }
     &:hover {
-      a {
-        opacity: 1;
-      }
-    }
-  }
-  p {
-    margin: 20px 0;
-  }
-  .icon_list {
-    border-top: 1px solid $bcolor;
-    border-left: 1px solid $bcolor;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    background: #fff;
-    > div {
-      width: 16.66%;
-      border-bottom: 1px solid $bcolor;
-      border-right: 1px solid $bcolor;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1.2rem 0;
-      cursor: pointer;
-      i {
-        margin: 1.6rem 0;
-        font-size: 2.2rem !important;
-      }
-      &:hover {
-        color: $tcolor;
-      }
+      color: $tcolor;
     }
   }
 }
