@@ -4,11 +4,16 @@
       <thead>
         <th
           v-for="item in columnConfig"
-          :key="item.label"
+          :key="item.value"
           :style="{ width: item.width ? `${item.width}px` : '' }"
         >
           {{ item.label }}
         </th>
+        <tr v-for="r in tableData" :key="r.id">
+          <td v-for="c in columnConfig" :key="c.value">
+            {{ r[c['value']] }}
+          </td>
+        </tr>
       </thead>
     </table>
   </div>
@@ -23,7 +28,7 @@ export default defineComponent({
       type: Array,
       required: true,
     },
-    data: {
+    tableData: {
       type: Array,
       required: true,
     },

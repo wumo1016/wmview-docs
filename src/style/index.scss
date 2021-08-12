@@ -79,6 +79,7 @@ $scrollbarShadow: rgba(128, 128, 128, 0.2);
 /* ----------- 公共样式 -------------- */
 .example_box {
   color: rgb(92, 91, 91);
+  padding-bottom: 20px;
   h3 {
     color: #000;
     font-size: 18px;
@@ -92,5 +93,14 @@ $scrollbarShadow: rgba(128, 128, 128, 0.2);
         opacity: 1;
       }
     }
+  }
+
+  code {
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: #f2f4f5;
+    border: 1px solid #f0f0f0;
+    border-radius: 3px;
   }
 }

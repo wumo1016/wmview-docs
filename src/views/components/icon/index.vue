@@ -9,6 +9,13 @@
     </div>
     <div class="example_box">
       <h3>
+        Icon使用方法
+        <a href="#icon-use">#</a>
+      </h3>
+      <div>直接通过设置元素类名<code>wm-icon-iconName</code>即可使用</div>
+    </div>
+    <div class="example_box">
+      <h3>
         图标列表
         <a href="#icon-list">#</a>
       </h3>
@@ -19,13 +26,13 @@
         </div>
       </div>
     </div>
-    <div class="example_box">
+    <!-- <div class="example_box">
       <h3>
         属性
         <a href="#icon-attribute">#</a>
       </h3>
-      <common-table :columnConfig="columnConfig"> </common-table>
-    </div>
+      <common-table :columnConfig="columnConfig" :tableData="configData"> </common-table>
+    </div> -->
   </div>
 </template>
 
@@ -41,22 +48,32 @@ export default defineComponent({
       columnConfig: [
         {
           label: '参数',
+          value: 'params',
           width: 150,
         },
         {
           label: '说明',
+          value: 'desc',
         },
         {
           label: '类型',
-        },
-        {
-          label: '可选值',
+          value: 'type',
         },
         {
           label: '默认值',
+          value: 'default',
           width: 150,
         },
       ],
+      configData: [
+        // {
+        //   id: '1',
+        //   params: '',
+        //   desc: '',
+        //   type: '',
+        //   default: '',
+        // }
+      ]
     }
   },
 })
