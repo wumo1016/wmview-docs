@@ -61,6 +61,7 @@ export default defineComponent({
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
   .operate_box {
     border-top: 1px solid $bcolor;
