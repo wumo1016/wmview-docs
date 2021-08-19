@@ -56,5 +56,9 @@
   "task",
   "time",
   "toggle-left",
-  "toggle-right"
+  "toggle-right",
+  "arrow-up",
+  "arrow-down",
+  "arrow-left",
+  "arrow-right"
 ]

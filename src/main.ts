@@ -7,6 +7,8 @@ import WmView from 'wmview'
 import 'wmview/dist/styles/index.css'
 
 import '@sty/index.scss'
+
+// 全局api
 import directives from './directives'
 import components from '@/components'
 

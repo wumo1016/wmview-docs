@@ -91,7 +91,7 @@ const ripples = {
         animation.parentNode && el.removeChild(animation.parentNode)
       }, 300)
     }, delay)
-  },
+  }
 }
 
 function rippleShow(e) {
@@ -104,7 +104,7 @@ function rippleHide(e) {
   ripples.hide(el)
 }
 
-const Ripple: ObjectDirective = {
+const ripple: ObjectDirective = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     el.addEventListener('mousedown', rippleShow)
     el.addEventListener('mouseup', rippleHide)
@@ -117,7 +117,7 @@ const Ripple: ObjectDirective = {
     el.removeEventListener('mousedown', rippleShow)
     el.removeEventListener('mouseup', rippleHide)
     el.removeEventListener('mouseleave', rippleHide)
-  },
+  }
 }
 
-export default Ripple
+export default ripple

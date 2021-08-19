@@ -1,5 +1,5 @@
 <template>
-  <div class="icon_wrapper">
+  <div class="demo_icon">
     <div class="example_box">
       <h3>
         Icon 图标
@@ -12,7 +12,17 @@
         Icon使用方法
         <a href="#icon-use">#</a>
       </h3>
-      <div>直接通过设置元素类名<code>wm-icon-iconName</code>即可使用</div>
+      <div>直接通过设置元素类名<code class="code_inline">wm-icon-iconName</code>即可使用</div>
+      <code-preview>
+        <template #demo>
+          <i class="wm-icon-plus"></i>
+          <i class="wm-icon-edit"></i>
+          <i class="wm-icon-delete"></i>
+        </template>
+        <template #code>
+          <pre><code>{{ fontClassCode }}</code></pre>
+        </template>
+      </code-preview>
     </div>
     <div class="example_box">
       <h3>
@@ -39,6 +49,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import iconData from './icon.json'
+import { fontClassCode } from './code'
 
 export default defineComponent({
   setup() {
@@ -49,21 +60,21 @@ export default defineComponent({
         {
           label: '参数',
           value: 'params',
-          width: 150,
+          width: 150
         },
         {
           label: '说明',
-          value: 'desc',
+          value: 'desc'
         },
         {
           label: '类型',
-          value: 'type',
+          value: 'type'
         },
         {
           label: '默认值',
           value: 'default',
-          width: 150,
-        },
+          width: 150
+        }
       ],
       configData: [
         // {
@@ -73,13 +84,20 @@ export default defineComponent({
         //   type: '',
         //   default: '',
         // }
-      ]
+      ],
+      fontClassCode
     }
-  },
+  }
 })
 </script>
 
 <style lang="scss" scoped>
+.demo_icon {
+  i {
+    font-size: 20px;
+    margin: 5px 15px;
+  }
+}
 .icon_list {
   border-top: 1px solid $bcolor;
   border-left: 1px solid $bcolor;

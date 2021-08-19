@@ -31,8 +31,9 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "highlight.js": "^11.2.0",
     "vue": "^3.1.2",
     "vue-router": "^4.0.10",
-    "wmview": "^0.0.4"
+    "wmview": "^0.0.8"
   }
 }
