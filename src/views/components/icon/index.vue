@@ -31,7 +31,7 @@
       </h3>
       <div class="icon_list">
         <div v-for="icon in iconList" :key="icon">
-          <wm-icon :class="`wm-icon-${icon}`" :spin="icon === 'loading'" />
+          <wm-icon :class="icon" :spin="icon === 'loading'" />
           <div>wm-icon-{{ icon }}</div>
         </div>
       </div>
