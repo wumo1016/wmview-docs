@@ -12,6 +12,8 @@
     "paths": {
       "@r": ["./src/router"],
       "@v": ["./src/views"],
+      "@p": ["./src/public"],
+      "@p/*": ["./src/public/*"],
       "@/*": ["./src/*"]
     }
   },

@@ -29,7 +29,8 @@ module.exports = {
       '@': resolve('./src'),
       '@v': resolve('./src/views'),
       '@sty': resolve('./src/style'),
-      '@r': resolve('./src/router')
+      '@r': resolve('./src/router'),
+      '@p': resolve('./src/public')
     }
   },
   module: {
@@ -89,7 +90,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['**/*']
-    }),
+    })
     // new BundleAnalyzerPlugin({})
   ]
 }

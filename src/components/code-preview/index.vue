@@ -4,6 +4,7 @@
       <slot name="demo"></slot>
     </div>
     <div class="operate_box">
+      <i class="wm-icon-copy" @click="handleCopy"></i>
       <i
         :class="['wm-icon-arrow-down', { arrow_up: spread }]"
         @click="changeSpread"
@@ -14,7 +15,9 @@
       :style="{ height: `${height}px` }"
     >
       <div ref="refCodeContent" v-highlight>
-        <slot name="code"> </slot>
+        <slot name="code">
+          <pre><code>{{ code }}</code></pre>
+        </slot>
       </div>
     </div>
   </div>
@@ -22,6 +25,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
+import { copyContent } from '@p/utils'
 
 export default defineComponent({
   props: {
@@ -29,9 +33,14 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false
+    },
+    code: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
-  setup() {
+  setup(props) {
     const state = reactive({
       spread: false,
       height: 0,
@@ -43,9 +52,15 @@ export default defineComponent({
       state.height = state.spread ? state.refCodeContent.offsetHeight : 0
     }
 
+    const handleCopy = () => {
+      copyContent(props.code)
+      alert('复制成功')
+    }
+
     return {
       ...toRefs(state),
-      changeSpread
+      changeSpread,
+      handleCopy
     }
   }
 })
@@ -73,6 +88,7 @@ export default defineComponent({
     background-color: #f9fafc;
     i {
       cursor: pointer;
+      margin: 0 10px;
       &:hover {
         color: $tcolor;
       }
@@ -81,7 +97,7 @@ export default defineComponent({
       transition: all 0.2s;
     }
     .arrow_up {
-      transform: rotate(-180deg);
+      transform: rotate(180deg);
     }
   }
   .code_box {
