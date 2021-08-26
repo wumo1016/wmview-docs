@@ -4,5 +4,5 @@
   - `@babel/preset-env`: babel 转换预设
   - `@babel/preset-typescript`: 转换 ts 的预设
   - `@babel/plugin-transform-runtime`: 转换高级语法(async-await 等)
-  - `@babel/plugin-transform-typescript`: 转换 vue 中的 ts 代码
+  - `@babel/plugin-transform-typescript`: 转换 ts 代码
   - `@vue/babel-plugin-jsx`: 解析 jsx tsx 文件
