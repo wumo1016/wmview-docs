@@ -24,7 +24,7 @@ module.exports = {
     historyApiFallback: true // 使用history路由模式
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
+    extensions: ['.ts', '.tsx', '.vue', '.js', '.jsx', '.json'],
     alias: {
       '@': resolve('./src'),
       '@v': resolve('./src/views'),
