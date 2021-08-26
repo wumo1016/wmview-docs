@@ -1,12 +1,10 @@
 module.exports = {
-  presets: [
-    '@babel/preset-env',
-    [
-      '@babel/preset-typescript',
-      {
-        allExtensions: true, // 支持所有文件扩展名 (.vue)
-      },
-    ],
-  ],
-  plugins: ['@babel/plugin-transform-runtime'],
+  presets: ['@babel/preset-env', '@babel/preset-typescript'],
+  plugins: ['@babel/plugin-transform-runtime', '@vue/babel-plugin-jsx'],
+  overrides: [
+    {
+      test: /\.vue$/,
+      plugins: ['@babel/plugin-transform-typescript']
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  render(){
-    return 123
+  setup() {
+    return () => <div>123</div>
   }
 })
