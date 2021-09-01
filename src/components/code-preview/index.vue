@@ -5,10 +5,10 @@
     </div>
     <div class="operate_box">
       <i class="wm-icon-copy" @click="handleCopy"></i>
-      <i
-        :class="['wm-icon-arrow-down', { arrow_up: spread }]"
-        @click="changeSpread"
-      ></i>
+      <div class="code_opreate" @click="changeSpread">
+        <i :class="['wm-icon-arrow-down', { arrow_up: spread }]"></i>
+        <span>{{ spread ? '隐藏代码' : '显示代码' }}</span>
+      </div>
     </div>
     <div
       :class="['code_box', { code_border: spread }]"
@@ -77,6 +77,15 @@ export default defineComponent({
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+  .code_opreate {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: $tcolor;
+    }
+    user-select: none;
   }
   .operate_box {
     border-top: 1px solid $bcolor;
