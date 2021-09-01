@@ -2,7 +2,7 @@
   <div class="home_wrapper">
     <div class="s_width">
       <h1>Wm View框架</h1>
-      <h2>一套基于Vue3.0的PC端组件库</h2>
+      <h2>一套基于Vue3.1的PC端组件库</h2>
       <div class="button_box">
         <div v-ripple class="start_use" @click="startUse">开始使用吧</div>
       </div>
@@ -17,13 +17,13 @@
             <h3>Wm View</h3>
             <ul>
               <li>
-                <a href="https://github.com/wumo1016/wmview" target="_blank"
+                <a href="https://github.com/wumo1016/wmview-docs" target="_blank"
                   >GitHub</a
                 >
               </li>
               <li>
                 <a
-                  href="https://github.com/wumo1016/wmview/releases"
+                  href="https://github.com/wumo1016/wmview-docs/releases"
                   target="_blank"
                 >
                   更新日志

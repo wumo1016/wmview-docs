@@ -1,30 +1,10 @@
 import { defineComponent } from 'vue'
 import iconData from './icon.json'
-import { fontClassCode, wmIconCode } from './code'
+import { fontClassCode, wmIconCode, columnConfig, tableData } from './data'
 import './index.scss'
 
 export default defineComponent({
   setup() {
-    const columnConfig = [
-      {
-        label: '参数',
-        value: 'params',
-        width: 150
-      },
-      {
-        label: '说明',
-        value: 'desc'
-      },
-      {
-        label: '类型',
-        value: 'type'
-      },
-      {
-        label: '默认值',
-        value: 'default',
-        width: 150
-      }
-    ]
     return () => {
       return (
         <div class="demo_icon">
@@ -90,6 +70,13 @@ export default defineComponent({
                 </div>
               ))}
             </div>
+          </div>
+          <div class="example_box">
+            <h3>
+              wm-icon属性
+              <a href="#icon-attr">#</a>
+            </h3>
+            <common-table columnConfig={columnConfig} tableData={tableData} />
           </div>
         </div>
       )

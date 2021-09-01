@@ -9,12 +9,14 @@
         >
           {{ item.label }}
         </th>
-        <tr v-for="r in tableData" :key="r.id">
+      </thead>
+      <tbody>
+        <tr v-for="(r, i) in tableData" :key="i">
           <td v-for="c in columnConfig" :key="c.value">
             {{ r[c['value']] }}
           </td>
         </tr>
-      </thead>
+      </tbody>
     </table>
   </div>
 </template>
@@ -26,22 +28,22 @@ export default defineComponent({
   props: {
     columnConfig: {
       type: Array,
-      required: true,
+      required: true
     },
     tableData: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   setup() {
     return {}
-  },
+  }
 })
 </script>
 
 <style lang="scss" scoped>
 .common_table_wrapper {
-  border: 1px solid rgba(202, 202, 202, 0.5);
+  border: 1px solid rgba(238, 237, 237, 1);
   border-radius: 4px;
   table {
     width: 100%;
@@ -50,7 +52,19 @@ export default defineComponent({
   thead {
     width: 100%;
     line-height: 40px;
-    background: rgb(209, 209, 209);
+    background: rgba(238, 237, 237, 0.6);
+  }
+  tbody {
+    tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(238, 237, 237, 1);
+      }
+    }
+  }
+  tr {
+    line-height: 36px;
+    text-align: center;
+    background: #fff;
   }
 }
 </style>
