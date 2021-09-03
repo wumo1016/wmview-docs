@@ -21,11 +21,10 @@ export default defineComponent({
   setup() {
     const state = reactive({
       anchors: [],
-      active: '',
+      active: ''
     })
 
-    let isManualScroll = true // 是否是鼠标滚轮操作导致的滑动
-
+    let isMouseScroll = true // 是否是鼠标滚轮操作导致的滑动
     let scrollContainer
 
     onMounted(async () => {
@@ -36,13 +35,18 @@ export default defineComponent({
           return {
             title: ele.childNodes[0].textContent.trim(),
             offsetTop: ele.offsetTop,
+            offsetHeight: ele.parentElement.offsetHeight
           }
         })
         state.active = state.anchors[0].title
-        scrollContainer.addEventListener('scroll', (e) => {
-          if (!isManualScroll) return
+        scrollContainer.addEventListener('scroll', e => {
+          if (!isMouseScroll) return
           const target = state.anchors.find(
-            (v) => v.offsetTop - 70 > scrollContainer.scrollTop
+            v =>
+              scrollContainer.scrollTop + 80 > v.offsetTop &&
+              scrollContainer.scrollTop + 80 < v.offsetTop + v.offsetHeight
+            // v.offsetTop - scrollContainer.scrollTop < 30 &&
+            // scrollContainer.scrollTop < v.offsetTop + v.offsetHeight
           )
           if (target) {
             state.active = target.title
@@ -50,15 +54,16 @@ export default defineComponent({
         })
       }
     })
-
+    // 当前active锚点
     const activeIndex = computed(() => {
-      return state.anchors.findIndex((v) => state.active === v.title)
+      return state.anchors.findIndex(v => state.active === v.title)
     })
-
-    const setScrollTop = (value) => {
-      isManualScroll = false
+    // 右侧锚点点击
+    const handleLinkClick = item => {
+      state.active = item.title
+      isMouseScroll = false
       const oldScrollTop = scrollContainer.scrollTop
-      const newScrollTop = value - 70
+      const newScrollTop = item.offsetTop - 90
       const differ = newScrollTop - oldScrollTop
       const step = differ / (200 / 10)
       const scrollHeight = scrollContainer.scrollHeight
@@ -74,22 +79,19 @@ export default defineComponent({
           (differ < 0 && curScrollTop < newScrollTop)
         ) {
           clearInterval(T)
-          isManualScroll = true
+          setTimeout(() => {
+            isMouseScroll = true
+          }, 50)
         }
       }, 10)
-    }
-
-    const handleLinkClick = (item) => {
-      state.active = item.title
-      setScrollTop(item.offsetTop)
     }
 
     return {
       ...toRefs(state),
       activeIndex,
-      handleLinkClick,
+      handleLinkClick
     }
-  },
+  }
 })
 </script>
 
