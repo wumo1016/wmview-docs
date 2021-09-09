@@ -66,7 +66,9 @@ export default defineComponent({
               {iconData.map(icon => (
                 <div>
                   <wm-icon class={icon} spin={icon === 'loading'} />
-                  <div>wm-icon-{icon}</div>
+                  <div style="padding: 0 10px;text-align: center;">
+                    wm-icon-{icon}
+                  </div>
                 </div>
               ))}
             </div>
